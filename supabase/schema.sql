@@ -128,16 +128,23 @@ create index if not exists idx_rate_limit_lookup on auth_rate_limit(identifier, 
 -- Housekeeping: drop attempts older than 1 day so the table doesn't grow forever.
 create or replace function prune_auth_rate_limit() returns trigger as $$
 begin
-  delete from auth_rate_limit where attempted_at < now() - interval '1 day';
+  -- Prune approximately 5% of the time.
+  if random() < 0.05 then
+    delete from auth_rate_limit
+    where attempted_at < now() - interval '1 day';
+  end if;
+
   return new;
 end;
 $$ language plpgsql;
 
 drop trigger if exists trg_prune_auth_rate_limit on auth_rate_limit;
+
 create trigger trg_prune_auth_rate_limit
   after insert on auth_rate_limit
-  execute function prune_auth_rate_limit()
-  when (random() < 0.05); -- prune probabilistically, not on every insert
+  for each row
+  execute function prune_auth_rate_limit();
+
 
 -- ----------------------------------------------------------------------------
 -- updated_at helper
@@ -191,8 +198,15 @@ create policy admin_profiles_self_select on admin_profiles
   for select using (id = auth.uid() or is_active_admin());
 
 drop policy if exists admin_profiles_self_insert on admin_profiles;
+
 create policy admin_profiles_self_insert on admin_profiles
-  for insert with check (id = auth.uid());
+  for insert
+  with check (
+    id = auth.uid()
+    and role is null
+    and status = 'pending'
+  );
+
 
 drop policy if exists admin_profiles_superadmin_update on admin_profiles;
 create policy admin_profiles_superadmin_update on admin_profiles
