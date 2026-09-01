@@ -1,0 +1,30 @@
+{
+  "node": {
+    "02cf65825f39e649583b99db5785fb4a08687b40": {
+      "workers": {
+        "app/(auth)/login/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CPrograms%5C%5CVibrantBackend%5C%5Csrc%5C%5Capp%5C%5C(auth)%5C%5Cactions.ts%22%2C%5B%22registerAction%22%2C%22loginAction%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/(auth)/login/page": "action-browser"
+      }
+    },
+    "c05b6e9297528f5c05b5e200e08dd55133f5a95f": {
+      "workers": {
+        "app/(auth)/login/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CPrograms%5C%5CVibrantBackend%5C%5Csrc%5C%5Capp%5C%5C(auth)%5C%5Cactions.ts%22%2C%5B%22registerAction%22%2C%22loginAction%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/(auth)/login/page": "action-browser"
+      }
+    },
+    "9c22dfc8d102ff22518c0e522f80d38be2461407": {
+      "workers": {
+        "app/admin/(dashboard)/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CPrograms%5C%5CVibrantBackend%5C%5Csrc%5C%5Capp%5C%5Cadmin%5C%5Cactions.ts%22%2C%5B%22signOutAction%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/admin/(dashboard)/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "S454+Xki3nfaG0aDB+S+saLyYmuYxW18ZMeaQ/GE2n0="
+}
