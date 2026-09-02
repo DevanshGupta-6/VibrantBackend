@@ -22,7 +22,7 @@ export default async function HomePage() {
       <header className="border-b border-ink-900/10">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <span className="font-display text-lg font-medium tracking-tight text-ink-900">
-            Zenith Fest
+            Vibrant 2K26
           </span>
           <nav className="flex items-center gap-6 text-sm text-ink-900/70">
             <Link href="/gallery" className="hover:text-ink-900">Gallery</Link>
