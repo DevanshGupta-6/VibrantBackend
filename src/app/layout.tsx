@@ -7,14 +7,14 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-displ
 const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata: Metadata = {
-  title: "Zenith Fest",
+  title: "Vibrant 2K26",
   description: "Official site and admin dashboard for Zenith Fest."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={clsx(spaceGrotesk.variable, inter.variable)}>
-      <body>{children}</body>
+      <body>{children} </body>
     </html>
   );
 }
